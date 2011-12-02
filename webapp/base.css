@@ -18,11 +18,16 @@ body {
 #screen {
     height: 1000px;
 }
+#nav ul{
+    display: -webkit-box;
+    display: box;
+}
 
 #nav li {
+    -webkit-box-flex : 1;
+    box-flex : 1;
+    width:25%;
     list-style: none;
-    float: left;
-    width: 25%;
     border-bottom: 4px solid #7C7D7C
 }
 
@@ -69,7 +74,7 @@ body {
     text-align: center;
     text-decoration: none;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    background-image:-webkit-gradient(linear,0 0,0 100%,from(#323232),to(#242424))
+    background-image: -webkit-gradient(linear,0 0,0 100%,from(#323232),to(#242424))
 }
 
 #nav a.active {

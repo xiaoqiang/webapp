@@ -265,7 +265,7 @@
                         clearTimeout(t);
                         t = null;
                         if (iDevice) {
-                            $id('pagewrapper').style.height = window.innerHeight + 'px';
+                            $id('pagewrapper').style.height = window.innerHeight - 92 + 'px';
                         }
                         pages = $sa('.scrollerwrapper');
                         page_flip = new iScroll('pagewrapper', {
@@ -307,7 +307,7 @@
                         clearTimeout(p);
                         p = null;
                         if (iDevice) {
-                            $id('pagewrapper').style.height = window.innerHeight + 'px';
+                            $id('pagewrapper').style.height = window.innerHeight - 92 + 'px';
                         }
                         page_flip.refresh();
                         var e = $id('pagewrapper'), a = $id('pageflip'), b = e.offsetWidth;
