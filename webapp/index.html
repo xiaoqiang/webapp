@@ -251,7 +251,7 @@
         </script>
         <script>
             var WebApp = function(){
-                var page_flip, vertical_scroll = [], pages, t, p, $id = function(id){
+                var page_flip, vertical_scroll = [], pages, t, p, iDevice = (/iphone|ipad/gi).test(navigator.appVersion), $id = function(id){
                     return document.getElementById(id);
                 }, $sa = function(s){
                     return document.querySelectorAll(s);
@@ -264,7 +264,9 @@
                     else {
                         clearTimeout(t);
                         t = null;
-                        $id('pagewrapper').style.height = window.innerHeight + 'px';
+                        if (iDevice) {
+                            $id('pagewrapper').style.height = window.innerHeight + 'px';
+                        }
                         pages = $sa('.scrollerwrapper');
                         page_flip = new iScroll('pagewrapper', {
                             bounce: false,
@@ -299,12 +301,14 @@
                 }, setSize = function(){//重新计算宽度
                     if (window.scrollY != 1) {
                         window.scrollTo(0, 1);
-                        p =  setTimeout(setSize, 100);
+                        p = setTimeout(setSize, 100);
                     }
                     else {
                         clearTimeout(p);
                         p = null;
-                        $id('pagewrapper').style.height = window.innerHeight + 'px';
+                        if (iDevice) {
+                            $id('pagewrapper').style.height = window.innerHeight + 'px';
+                        }
                         page_flip.refresh();
                         var e = $id('pagewrapper'), a = $id('pageflip'), b = e.offsetWidth;
                         a.style.width = b * 4 + 'px';
