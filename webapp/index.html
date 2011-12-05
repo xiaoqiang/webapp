@@ -264,9 +264,6 @@
                     else {
                         clearTimeout(t);
                         t = null;
-                        if (iDevice) {
-                            $id('pagewrapper').style.height = window.innerHeight - 92 + 'px';
-                        }
                         pages = $sa('.scrollerwrapper');
                         page_flip = new iScroll('pagewrapper', {
                             bounce: false,
@@ -293,10 +290,11 @@
                                 var a = page_flip.currPageX;
                                 page_flip.scrollToPage(a, 0, 0)
                             }, 400);
+                            
                         }, false);
                         delegate('nav', 'touchstart', goToPage);
                         document.addEventListener('touchmove', stopDefault, false);
-                        page_flip.refresh();
+                        
                     }
                 }, setSize = function(){//重新计算宽度
                     if (window.scrollY != 1) {
@@ -306,15 +304,20 @@
                     else {
                         clearTimeout(p);
                         p = null;
+                        var vscrollH = window.innerHeight - $id('nav').offsetHeight;
                         if (iDevice) {
-                            $id('pagewrapper').style.height = window.innerHeight - 92 + 'px';
+                            $id('pagewrapper').style.height = vscrollH + 'px';
                         }
-                        page_flip.refresh();
                         var e = $id('pagewrapper'), a = $id('pageflip'), b = e.offsetWidth;
                         a.style.width = b * 4 + 'px';
                         for (var c = 0; c < pages.length; c++) {
-                            pages[c].style.width = b + 'px'
+                            pages[c].style.width = b + 'px';
+                            if (vertical_scroll[c]) {
+                                pages[c].style.height = vscrollH + 'px';
+                                vertical_scroll[c].refresh();
+                            }
                         }
+                        page_flip.refresh();
                     }
                     
                 }, loaded = function(){//初始化load事件
@@ -342,12 +345,12 @@
                     window.addEventListener('load', loaded, false);
                 }
                 return {
-                    _init: function(){
+                    start: function(){
                         init();
                     }
                 }
             }, wa = new WebApp();
-            wa._init();
+            wa.start();
         </script>
     </body>
 </html>
