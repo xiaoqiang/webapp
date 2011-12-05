@@ -272,8 +272,8 @@
                             snap: true,
                             momentum: false,
                             onScrollEnd: function(){
-                                $s('#nav > ul > li > a.active').className = '';
-                                $s('#nav > ul > li:nth-child(' + (this.currPageX + 1) + ') a').className = 'active';
+                                $s('#nav a.active').className = '';
+                                $s('#nav li:nth-child(' + (this.currPageX + 1) + ') a').className = 'active';
                             }
                         });
                         setSize();
