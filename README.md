@@ -8,7 +8,11 @@
 ###测试机器：
 1. android2.3（本人自测）；
 2. itouch4（本人自测）；
-3. 帮忙测试的哥们可以在我的[博客](http://www.xiaoqiang.org/mobile-web/webapp-frame.html)留言反馈结果  
+3. ipad（dustin测试）；
+4. 帮忙测试的哥们可以在我的[博客](http://www.xiaoqiang.org/mobile-web/webapp-frame.html)留言反馈结果  
+
+###暂时发现的问题
+1. ipad/itouch有渲染问题，第一次拖动有闪屏现象
 
 [在线演示地址](http://xiaoqiang.org/demo/webapp/index.html)  
 
