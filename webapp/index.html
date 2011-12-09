@@ -271,6 +271,8 @@
                             vScrollbar: false,
                             snap: true,
                             momentum: false,
+                            lockDirection: true,
+                            fixedScrollbar: false,
                             onScrollEnd: function(){
                                 $s('#nav a.active').className = '';
                                 $s('#nav li:nth-child(' + (this.currPageX + 1) + ') a').className = 'active';
@@ -281,7 +283,11 @@
                             vertical_scroll[a] = new iScroll(pages[a], {
                                 bounce: false,
                                 hScrollbar: false,
-                                vScrollbar: true
+                                vScrollbar: true,
+                                fixedScrollbar: false,
+                                lockDirection: true,
+                                fadeScrollbar: true,
+                                hideScrollbar: true
                             });
                         }
                         window.addEventListener('onorientationchange' in window ? 'orientationchange' : 'resize', function(){
@@ -342,7 +348,7 @@
                         console.log(e);
                     }
                 }, init = function(){
-                    window.addEventListener('load', loaded, false);
+                    window.addEventListener('DOMContentLoaded', loaded, false);
                 }
                 return {
                     start: function(){
